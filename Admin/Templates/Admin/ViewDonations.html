@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>#</td>
+            <td>Donation Type</td>
+            <td>Donation Description</td>
+            <td>Action</td>
+            {% for i in data %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.donation_type.donationtype}}</td>
+                <td>{{i.donation_details}}</td>
+                
+            </tr>
+            {% endfor %}
+        </tr>
+    </table>
+</body>
+</html>

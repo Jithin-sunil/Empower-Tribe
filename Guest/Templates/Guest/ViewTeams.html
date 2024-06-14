@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>#</td>
+                <td>Team Name</td>
+                <td>Member Count</td>
+                <td>Ward</td>
+                <td>Action</td>
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.team.team_name}}</td>
+                <td>{{i.team.member_count}}</td>
+                <td>{{i.ward.ward}}</td>
+                <td><a href="{% url 'Webguest:MemberRegistration' i.id %}">Add members</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+</body>
+</html>

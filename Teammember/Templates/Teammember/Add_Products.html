@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center">Add Product</h1>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %} 
+    <table border="1">
+        
+        <tr>
+         <td>Product Name</td>
+         <td><input type="text" name="txtname"></td>
+        </tr>
+        <tr>
+            <td>Product Price</td>
+            <td><input type="text" name="txtprice"></td>
+           </tr>
+        <tr>
+        <tr>
+            <td>Details</td>
+            <td><input type="text" name="txtdetails"></td>
+        </tr>
+        <tr>
+            <td>Image</td>
+            <td><input type="file" name="pimage"></td>
+        </tr>
+        <tr>
+            <td>Category</td>
+            <td><select name="sel_category" id="sel_category">
+               <option value="">Select</option>
+               {% for i in data %}
+               <option value="{{i.id}}">{{i.category_name}}</option>
+               {% endfor %}
+            </select></td>
+        </tr>
+        
+        <tr>
+           <td colspan="2" align="center">
+               <input type="submit" name="Save" value="Save">
+               <input type="reset"  name="Cancel"  value="Cancel">
+           </td>
+        </tr>
+    </table>
+    </form>
+<br><br><br><br>
+    <table border="1" align="center">
+        <tr>
+            <td>Sl.no</td>
+            <td>Category</td>
+            <td>Product</td>
+            <td>Image</td>
+            <td>Details</td>
+            <td>Price</td>
+            <td>Family</td>
+            <td>Action</td>
+        </tr>
+        {% for i in product %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.category.category_name}}</td>
+            <td>{{i.product_name}}</td>
+            <td><img src="{{i.product_image.url}}" width="100" height="100"></td>
+            <td>{{i.product_details}}</td>
+            <td>Rs.{{i.product_price}}/-</td>
+            <td>{{i.family.family_housename}}</td>
+        
+        </tr>
+        {% endfor  %}
+    </table>
+</body>
+</html>
+

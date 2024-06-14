@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>New Complaint</h3>
+    <table border="1">
+        <tr>
+            <td>Sl.no</td>
+            <td>Title</td>
+            <td>Complaint</td>
+            <td>Date</td>
+            <td>Username</td>
+            <td>Action</td>
+        </tr>
+        {% for i in new %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.complaint_title}}</td>
+            <td>{{i.complaint_content}}</td>
+            <td>{{i.complaint_date}}</td>
+            <td>{{i.user.userregistration_name}}</td>
+            <td><a href="{% url 'Webadmin:Reply' i.id %}">Reply</a></td>
+        </tr>
+        {% endfor %}
+   </table>     
+   <h3>Replied Complaint</h3>
+   <table border="1">
+    <tr>
+        <td>Sl.no</td>
+        <td>Title</td>
+        <td>Complaint</td>
+        <td>Date</td>
+        <td>Username</td>
+        <td>Reply</td>
+    </tr>
+    {% for i in repl %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.complaint_title}}</td>
+            <td>{{i.complaint_content}}</td>
+            <td>{{i.complaint_date}}</td>
+            <td>{{i.user.userregistration_name}}</td>
+            <td>{{i.complaint_reply}}</td>
+
+        </tr>
+        {% endfor %}
+</table>     
+</body>
+</html>

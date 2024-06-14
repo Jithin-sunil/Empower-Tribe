@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tab" align="center">
+    <h2>Member REGISTRATION</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+<table border="1" align="center" style="padding-left: 20%;">
+    <tr>
+        <td>Name</td>
+        <td><input type="text" name="txtname" required title="Name Allows Only Alphabets,Spaces and First Letter Must Be Capital Letter" pattern="^[A-Z]+[a-zA-Z ]*$"> </td>
+    </tr>
+    <tr>
+        <td>Contact</td>
+        <td><input type="number" name="txtnumber" required pattern="[7-9]{1}[0-9]{9}" 
+            title="Phone number with 7-9 and remaing 9 digit with 0-9"></td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td><input type="email" name="txtemail" required></td>
+    </tr>
+    <tr>
+        <td>Address</td>
+        <td><input type="text" name="txtaddress" required></td>
+    </tr>
+    
+    <tr>
+        <td>Photo</td>
+        <td><input type="file" name="Photo" required></td>
+    </tr>
+    <tr>
+        <td>Proof</td>
+        <td><input type="file" name="Proof" required></td>
+    </tr>
+    <tr>
+        <td>Password</td>
+        <td><input type="password"  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required name="txtpassword1"></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            <input type="submit" name="Save" value="Save">
+            <input type="reset"  name="Cancel"  value="Cancel">
+        </td>
+    </tr>
+ </table>
+ </form>
+</div>
+</body>
+</html>
+

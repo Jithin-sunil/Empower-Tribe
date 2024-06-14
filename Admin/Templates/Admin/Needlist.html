@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <table>
+        <tr>
+            <td>#</td>
+            <td>Donation Type</td>
+            <td>Family Name</td>
+            <td>Needs</td>
+            <td>Action</td>
+        </tr>
+        {% for i in data %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.donationtype.donationtype}}</td>
+            <td>{{i.family.family_housename}}</td>
+            <td>{{i.need}}</td>
+            <td><a href="{% url 'Webadmin:Accept' i.id %}">Accept</a>
+                <a href="{% url 'Webadmin:Reject' i.id %}">Reject</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

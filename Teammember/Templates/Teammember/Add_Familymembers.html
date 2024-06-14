@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="txt_name" id=""></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td><input type="radio" name="Gender" id="" value="Male">Male
+                <input type="radio" name="Gender" id="" value="Female">FeMale
+                </td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td><input type="number" name="txt_age" id=""></td>
+            </tr>
+            <tr>
+                <td>Relation</td>
+                <td><input type="text" name="txt_relation" id=""></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Submit"></td>
+                
+            </tr>
+        </table>
+    </form>
+    <table>
+        <tr>
+            <td>House Name</td>
+           
+            <td>Member Name</td>
+            <td>Gender</td>
+            <td>Age</td>
+            <td>Relation</td>
+            <td>Action</td>
+        </tr>
+        {% for i in data %}
+        <tr>
+            <td>{{i.family.family_housename}}</td>
+            <td>{{i.family_member_name}}</td>
+            <td>{{i.family_member_gender}}</td>
+            <td><td>{{i.family_member_age}}</td></td>
+            <td>{{i.family_member_relation}}</td>
+            <td></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
